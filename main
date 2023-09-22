@@ -11,7 +11,7 @@ class Card(val numbers: MutableMap<Int, HashSet<Int>>){
  // создайте класс Person, который имеет лишь одно поле в конструкторе — строку name
  class Person(val name: String){
      init{
-         var card = createCard()
+         val card = createCard()
      }
  }
      // в теле класса создайте поле card класса Card. При создании экземпляра класса оно должно генерироваться с помощью метода createCard()
@@ -23,14 +23,12 @@ class Card(val numbers: MutableMap<Int, HashSet<Int>>){
          for (k in 1..3){
              
              var hashSet = HashSet<Int>(5)
-             for(v in hashSet){
+             val iterator = hashSet.iterator()
+             while(iterator.hasNext()){
                  
                  while(true){
                  var vv = Random.nextInt(1,99)
-                 if (!hashSet.contains(vv)) {
-                     hashSet.add(vv)
-                     break
-                     }
+                 if (hashSet.add(vv))  break
                  }
 
              }
